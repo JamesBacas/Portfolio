@@ -111,3 +111,51 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// 5. Interactive Spotlight Effect for Project Cards
+const cards = document.querySelectorAll('.project-card, .featured-project-card');
+cards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+    });
+});
+
+// 6. Mobile Menu Toggle logic
+const createMobileMenu = () => {
+    const navContent = document.querySelector('.nav-content');
+    const menuBtn = document.createElement('div');
+    menuBtn.className = 'menu-btn';
+    menuBtn.innerHTML = '<div class="menu-btn__burger"></div>';
+    navContent.appendChild(menuBtn);
+
+    const navLinks = document.querySelector('.nav-links');
+    let menuOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+        if(!menuOpen) {
+            menuBtn.classList.add('open');
+            navLinks.classList.add('open');
+            menuOpen = true;
+        } else {
+            menuBtn.classList.remove('open');
+            navLinks.classList.remove('open');
+            menuOpen = false;
+        }
+    });
+
+    // Close menu when link is clicked
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            menuBtn.classList.remove('open');
+            navLinks.classList.remove('open');
+            menuOpen = false;
+        });
+    });
+};
+
+createMobileMenu();
