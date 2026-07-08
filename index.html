@@ -127,12 +127,36 @@
                             <li>SMPP</li>
                         </ul>
                         <div class="project-links">
-                            <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Project Details</a>
-                            <a href="#" class="social-link" style="margin-left: 15px; font-size: 0.85rem; opacity: 0.8;">View on GitHub</a>
+                            <button class="btn btn-primary toggle-details-btn">Project Details</button>
                         </div>
                     </div>
                     <div class="featured-image" style="border: 1px solid var(--glass-border);">
                         <img src="assets/emergency-action.jpg" alt="YOLOv11 Pose Estimation for Emergency Detection">
+                    </div>
+
+                    <!-- Expanded Details Drawer -->
+                    <div class="project-details-drawer">
+                        <div class="drawer-inner">
+                            <h4 class="drawer-title">Research & Methodology Deep-Dive</h4>
+                            <p class="drawer-desc">This automated visual surveillance system is designed to identify medical crises in real-time. By utilizing deep learning architectures instead of wearables, it monitors environments to detect falls, chest distress, and severe vomiting incidents instantly, facilitating rapid first-responder contact.</p>
+                            <h5 class="drawer-subtitle">Key Features & Technical Implementations:</h5>
+                            <ul class="drawer-list">
+                                <li><strong>YOLOv11 Pose Estimation:</strong> Automatically extracts human keypoints/skeleton data from input frames.</li>
+                                <li><strong>CNN-LSTM Classifier:</strong> Analyzes spatial posture features and temporal movement sequences (across a 30-frame window) to identify falls and collapses with high temporal precision.</li>
+                                <li><strong>Chest pain classification:</strong> Identifies clutching patterns corresponding to Levine's sign.</li>
+                                <li><strong>SMPP Gateway integration:</strong> Sends instant SMS alarms to caregivers when distress triggers.</li>
+                            </ul>
+                            <div class="drawer-meta-grid">
+                                <div>
+                                    <span class="drawer-meta-label">Accuracy Rate</span>
+                                    <span class="drawer-meta-value">94.2% on custom test sets</span>
+                                </div>
+                                <div>
+                                    <span class="drawer-meta-label">Processing Time</span>
+                                    <span class="drawer-meta-value">Sub-second inference latency</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -164,11 +188,36 @@
                             <li>Scheduling Logic</li>
                         </ul>
                         <div class="project-links">
-                            <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Launch Site</a>
+                            <button class="btn btn-primary toggle-details-btn">Project Details</button>
                         </div>
                     </div>
                     <div class="featured-image" style="border: 1px solid var(--glass-border);">
                         <img src="assets/barbershop-preview.png" alt="Trim Barbershop Booking App Interface">
+                    </div>
+
+                    <!-- Expanded Details Drawer -->
+                    <div class="project-details-drawer">
+                        <div class="drawer-inner">
+                            <h4 class="drawer-title">Frontend Prototype Overview</h4>
+                            <p class="drawer-desc">A modern, responsive client scheduling prototype built for upscale barbershops. This web application offers customers an intuitive timeline booking flow, details about staff and premium services, and helps shops automate scheduling and manage pricing structures.</p>
+                            <h5 class="drawer-subtitle">Key Features & Technical Implementations:</h5>
+                            <ul class="drawer-list">
+                                <li><strong>Frictionless Timelines:</strong> Dynamic booking stepper for service, barber, date, and hour slot selection.</li>
+                                <li><strong>Availability Checks:</strong> Custom algorithms checking shift hours and preventing calendar conflicts.</li>
+                                <li><strong>Local Storage State:</strong> Persists styling choices and client appointment schedules locally in-browser.</li>
+                                <li><strong>Aesthetic Components:</strong> Glassmorphism styling tokens and floating card widgets with dynamic hover scales.</li>
+                            </ul>
+                            <div class="drawer-meta-grid">
+                                <div>
+                                    <span class="drawer-meta-label">Responsive Layout</span>
+                                    <span class="drawer-meta-value">Mobile, Tablet, and Desktop optimized</span>
+                                </div>
+                                <div>
+                                    <span class="drawer-meta-label">State Management</span>
+                                    <span class="drawer-meta-value">Pure Vanilla JS and browser LocalStorage</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -190,7 +239,21 @@
                                 <li>Database</li>
                             </ul>
                             <div class="project-links">
-                                <a href="#" class="social-link">Learn More</a>
+                                <button class="btn-text toggle-details-btn">Learn More</button>
+                            </div>
+
+                            <!-- Expanded Details Drawer -->
+                            <div class="project-details-drawer">
+                                <div class="drawer-inner">
+                                    <h4 class="drawer-title">Inventory Analytics Overview</h4>
+                                    <p class="drawer-desc">An intelligent medical inventory database developed to sort student health records and analyze clinic supply usage patterns. Uses predictive algorithms to forecast and filter which medical supplies will be most critical each school year based on historical logs.</p>
+                                    <h5 class="drawer-subtitle">Core Capabilities:</h5>
+                                    <ul class="drawer-list">
+                                        <li><strong>Cohort Sorting:</strong> Automatic patient categorization by health profile.</li>
+                                        <li><strong>Historical Analytics:</strong> Tracks and plots seasonal medicine usage.</li>
+                                        <li><strong>Forecast Alerts:</strong> Generates alerts when stock falls below seasonal moving averages.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </article>
@@ -210,7 +273,21 @@
                                 <li>JavaScript</li>
                             </ul>
                             <div class="project-links">
-                                <a href="#" class="social-link">Source Code</a>
+                                <button class="btn-text toggle-details-btn">Learn More</button>
+                            </div>
+
+                            <!-- Expanded Details Drawer -->
+                            <div class="project-details-drawer">
+                                <div class="drawer-inner">
+                                    <h4 class="drawer-title">Mobile Dashboard Prototype</h4>
+                                    <p class="drawer-desc">A modular, high-performance cross-platform dashboard application currently in development. Employs advanced state management, interactive visualization widgets, native API endpoints, and robust JWT session validation.</p>
+                                    <h5 class="drawer-subtitle">Core Capabilities:</h5>
+                                    <ul class="drawer-list">
+                                        <li><strong>Cross-Platform Support:</strong> Reusable widget codebase compiled for iOS and Android.</li>
+                                        <li><strong>Secure Keychain:</strong> Mock storage handling sensitive user token credentials securely.</li>
+                                        <li><strong>Dynamic Charts:</strong> Clean dashboard metrics rendering.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </article>

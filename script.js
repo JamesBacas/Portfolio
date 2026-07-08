@@ -159,3 +159,37 @@ const createMobileMenu = () => {
 };
 
 createMobileMenu();
+
+// --- Expanding Project Details Drawer Logic ---
+const toggleDetailsButtons = document.querySelectorAll('.toggle-details-btn');
+
+toggleDetailsButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Find the closest parent project container
+        const projectContainer = button.closest('.featured-project') || button.closest('.project-card');
+        if (!projectContainer) return;
+        
+        // Find the drawer inside this container
+        const drawer = projectContainer.querySelector('.project-details-drawer');
+        if (!drawer) return;
+        
+        const isOpen = drawer.classList.contains('open');
+        
+        // Toggle the current drawer
+        if (isOpen) {
+            drawer.classList.remove('open');
+            button.textContent = button.classList.contains('btn') ? 'Project Details' : 'Learn More';
+        } else {
+            drawer.classList.add('open');
+            button.textContent = 'Hide Details';
+            
+            // Scroll dynamically to the drawer top to ensure visibility if needed
+            setTimeout(() => {
+                drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 350);
+        }
+    });
+});
+
