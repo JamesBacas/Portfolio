@@ -198,10 +198,24 @@ ul {
     font-weight: 800;
     color: var(--text-primary);
     letter-spacing: -1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .logo span {
     color: var(--accent-primary);
+}
+
+.logo-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--accent-primary);
+    transition: var(--transition);
+}
+
+.logo:hover .logo-icon {
+    transform: scale(1.1) rotate(-5deg);
 }
 
 .nav-links {
