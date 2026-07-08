@@ -786,3 +786,279 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* --- Project Filters styling --- */
+.project-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: rgba(37, 24, 51, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    backdrop-filter: blur(8px);
+}
+
+.filter-btn:hover {
+    color: var(--accent-primary);
+    border-color: rgba(255, 126, 95, 0.3);
+    background: rgba(255, 126, 95, 0.05);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: var(--gradient-accent);
+    color: #181124;
+    font-weight: 600;
+    border-color: transparent;
+    box-shadow: 0 8px 20px rgba(255, 126, 95, 0.3);
+}
+
+/* Card Filtering Animations */
+.featured-project,
+.project-card {
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.featured-project.filtered-out,
+.project-card.filtered-out {
+    opacity: 0 !important;
+    transform: scale(0.9) translateY(20px) !important;
+    visibility: hidden;
+    position: absolute;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* Glassmorphism Modal System */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(12, 8, 18, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-container {
+    background: rgba(37, 24, 51, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 850px;
+    max-height: 85vh;
+    border-radius: 20px;
+    position: relative;
+    overflow-y: auto;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    scrollbar-width: thin;
+    scrollbar-color: var(--surface-color-light) transparent;
+}
+
+.modal-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-container::-webkit-scrollbar-thumb {
+    background: var(--surface-color-light);
+    border-radius: 10px;
+}
+
+.modal-overlay.active .modal-container {
+    transform: scale(1) translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-secondary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: rgba(255, 126, 95, 0.15);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    transform: rotate(90deg);
+}
+
+.modal-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.modal-body {
+    padding: 40px;
+}
+
+/* Modal Content Layout */
+.modal-project-header {
+    margin-bottom: 25px;
+}
+
+.modal-project-tag {
+    font-family: monospace;
+    color: var(--accent-primary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.modal-project-title {
+    font-size: clamp(24px, 4vw, 32px);
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.modal-project-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .modal-project-grid {
+        grid-template-columns: 1fr;
+    }
+    .modal-body {
+        padding: 30px 20px;
+    }
+}
+
+.modal-left img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 20px;
+}
+
+.modal-description {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.modal-features-title {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.modal-features-list {
+    list-style: none;
+    margin-bottom: 25px;
+    padding-left: 0;
+}
+
+.modal-features-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.modal-features-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+}
+
+.modal-meta-label {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--accent-primary);
+    margin-bottom: 5px;
+    display: block;
+}
+
+.modal-meta-value {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.modal-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin-bottom: 25px;
+    padding-left: 0;
+}
+
+.modal-tech-tags li {
+    font-family: monospace;
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+    color: var(--text-secondary);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.modal-actions .btn {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.95rem;
+    border-radius: 30px;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
